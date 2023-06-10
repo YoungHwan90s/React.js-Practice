@@ -1,22 +1,9 @@
 import React from 'react'
+import Layout from 'Layout';
 
-function Son(props) {
-  return <div>I'm a {props.GrandFatherName}'s' grandchild</div>
+export function App() {
+  return <Layout>
+    <div>new header from App</div>
+  </Layout>
 }
-
-function Mother(props) {
-  const name = "Janet"
-  const GrandFatherName = props.GrandFatherName
-  return <Son GrandFatherName={GrandFatherName} />
-}
-
-function GrandFather() {
-  const name = "Michael";
-  return <Mother GrandFatherName={name} />
-}
-
-function App() {
-  return <GrandFather />
-}
-
-export default App
+export default App;
