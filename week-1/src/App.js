@@ -1,27 +1,19 @@
 import React from "react";
 
-function Child() {
-  const onClickButtonHandler = () => {
-    alert("Well done");
-  };
-  return (
-    <div
-      style={{
-        height: "100vh",
-        display: " flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <span>This is App Component I made</span>
-      <button onClick={onClickButtonHandler}>Click!</button>
-    </div>
-  );
+function Son() {
+  return <div>I'm a Son</div>
+}
+
+function Mother() {
+  return <Son />
+}
+
+function GrandFather() {
+  return <Mother />
 }
 
 function App() {
-  return <Child />;
+  return <GrandFather />
 }
 
 export default App;
