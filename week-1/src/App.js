@@ -2,14 +2,19 @@ import React, { useState } from "react";
 
 function App() {
   // hook
-  const [name, setName] = useState('YoungHwan');
-  const nameChange = () => setName('newNameChange')
-  
+  const [fruit, setFruit] = useState("");
+
   return (
     <div>
-      {name}
-      <br />
-      <button onClick={nameChange}>click</button>
+      fruit:{" "}
+      <input
+        value={fruit}
+        onChange={function (event) {
+          setFruit(event.target.value);
+        }}
+      />
+      <br /> <br />
+      {fruit}
     </div>
   );
 }
