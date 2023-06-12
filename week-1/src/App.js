@@ -1,32 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 function App() {
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
-
-  const onIdChangeHandler = (event) => {
-    setId(event.target.value);
+  const [count, setCount] = useState(0);
+  const plusNumber = () => {
+    let plusCount = count + 1;
+    setCount(plusCount);
   };
-
-  const onPWChangeHandler = (event) => {
-    setPw(event.target.value);
+  const minusNumber = () => {
+    let minusNumber = count - 1;
+    setCount(minusNumber);
   };
-
-  const alertAndRefreshInput = () => {
-    alert(`The Id you put is ${id} and the password is ${pw}`)
-    setId('')
-    setPw('')
-  }
 
   return (
     <div>
-      <div>
-        ID: <input type="text" value={id} onChange={onIdChangeHandler} />
-      </div>
-      <div>
-        PW: <input type="password" value={pw} onChange={onPWChangeHandler} />
-      </div>
-      <button onClick={alertAndRefreshInput}>LOGIN</button>
+      <div>{count}</div>
+      <button onClick={plusNumber}>+</button>
+      <button onClick={minusNumber}>-</button>
     </div>
   );
 }
