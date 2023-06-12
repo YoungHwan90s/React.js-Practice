@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Child({age, name, children}) {
+function Child({age = 1, name, children}) {
     console.log(age)
     console.log(name)
     console.log(children)
@@ -8,5 +8,7 @@ function Child({age, name, children}) {
     <div>Child</div>
   )
 }
-
+// Child.defaultProps={
+//     age: "default age"
+// }
 export default Child
