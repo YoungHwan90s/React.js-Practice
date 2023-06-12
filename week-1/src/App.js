@@ -1,13 +1,17 @@
-import React from "react";
-import Layout from "Layout";
-import Child from "Child";
+import React, { useState } from "react";
 
-export function App() {
-  const name = "YoungHwan";
+function App() {
+  // hook
+  const [name, setName] = useState('YoungHwan');
+  const nameChange = () => setName('newNameChange')
+  
   return (
-    <Child age={21} name={name}>
-      NAME
-    </Child>
+    <div>
+      {name}
+      <br />
+      <button onClick={nameChange}>click</button>
+    </div>
   );
 }
+
 export default App;
