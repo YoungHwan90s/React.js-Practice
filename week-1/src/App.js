@@ -1,9 +1,13 @@
-import React from 'react'
-import Layout from 'Layout';
+import React from "react";
+import Layout from "Layout";
+import Child from "Child";
 
 export function App() {
-  return <Layout>
-    <div>new header from App</div>
-  </Layout>
+  const name = "YoungHwan";
+  return (
+    <Child age={21} name={name}>
+      NAME
+    </Child>
+  );
 }
 export default App;
