@@ -1,24 +1,16 @@
 import React from "react";
-import { useState } from "react";
+import "./App.css"
 
-function App() {
-  const [count, setCount] = useState(0);
-  const plusNumber = () => {
-    let plusCount = count + 1;
-    setCount(plusCount);
-  };
-  const minusNumber = () => {
-    let minusNumber = count - 1;
-    setCount(minusNumber);
-  };
+const App = () => {
 
+  const testArr = ['감자', '고구마', '오이', '가지', '옥수수']
   return (
-    <div>
-      <div>{count}</div>
-      <button onClick={plusNumber}>+</button>
-      <button onClick={minusNumber}>-</button>
+    <div className="app-style">
+      {
+        testArr.filter(item => item !== '오이').map(item => <div className="component-style">{item}</div>)
+      }
     </div>
   );
-}
+};
 
 export default App;
