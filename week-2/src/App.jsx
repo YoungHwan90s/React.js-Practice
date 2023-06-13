@@ -1,27 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  const [number, setNumber] = useState(0);
+  const [value, setValue] = useState("");
+  
+  // Dependency Array
+  // 배열에 값을 넣어, 값이 바뀔 때만 useEffect 실행!
+  useEffect(() => {
+    console.log(`value change ${value}`);
+    
+    return () => {
+      console.log('clean up part')
+    }
+  }, [value]);
 
   return (
     <div>
-      <div>number: {number}</div>
-      <button
-        onClick={() => {
-          // 기존 업데이트 방법 - 1만 올라감
-          // 배치 업데이트 한거번에 모아서 한 번만 반영)
-          // setNumber(number + 1);
-          // setNumber(number + 1);
-          // setNumber(number + 1);
-
-          // 함수형 업데이트 방법 (함수는 반환 값이 있어)
-          setNumber(currentNumber => currentNumber + 1);
-          setNumber(currentNumber => currentNumber + 1);
-          setNumber(currentNumber => currentNumber + 1);
+      <input
+        type="text"
+        onChange={(event) => {
+          setValue(event.target.value);
         }}
-      >
-        click
-      </button>
+      ></input>
     </div>
   );
 }
