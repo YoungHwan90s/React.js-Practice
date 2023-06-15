@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { toDos } from "../shared/data";
 
-function Work() {
+function WorkDetail() {
   const params = useParams();
 
   // Let's search which todo is,
@@ -19,4 +19,4 @@ function Work() {
   );
 }
 
-export default Work;
+export default WorkDetail;
