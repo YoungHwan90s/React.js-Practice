@@ -1,0 +1,10 @@
+1. 페이지 컴포넌트 작성 -> 다중 페이지
+2. Router.js 파일 생성 .router를 구성하는 설정 코드 작성
+(ex. redux 할 때도 설정 파일을 만들어서 주입했죠?!)
+3. App.jsx import 하고(2번) 적용: 주입
+4. 페이지 이동 테스트
+
+localhost:3000/home
+localhost:3000/about
+localhost:3000/contact
+
