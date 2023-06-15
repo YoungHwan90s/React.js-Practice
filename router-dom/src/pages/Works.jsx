@@ -1,12 +1,13 @@
 import React from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { toDos } from "../shared/data";
 
 function Works() {
   const navigate = useNavigate();
 
   // param 값 얻는 법
-  const { pageNum } = useParams();
-  console.log(123, pageNum); // 1
+  const { id } = useParams();
+  console.log(123, id); // 1
 
   // 추 후 조건부 렌더링 할 수 있는 기능
   const location = useLocation();
@@ -25,6 +26,17 @@ function Works() {
       </button>
       <br />
       <Link to={"/contact"}>MOVE TO CONTACT</Link>
+      <br />
+      <h3>To do List</h3>
+      {toDos.map((item) => {
+        return (
+          <div key={item.id}>
+            {item.id}
+            &nbsp;
+            <Link to={`/works/${item.id}`}>{item.toDo}</Link>
+          </div>
+        );
+      })}
     </div>
   );
 }
