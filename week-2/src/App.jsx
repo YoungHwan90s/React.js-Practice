@@ -1,8 +1,13 @@
-import React from 'react'
-import ObjectComponent from './components/ObjectComponent'
+import React from "react";
+import { useSelector } from "react-redux";
 
 function App() {
-  return <ObjectComponent />
+  const counter = useSelector((state) => {
+    return state.counter;
+  });
+
+  console.log("counter -> ", counter.number);
+  return <div>App</div>;
 }
 
-export default App
+export default App;
