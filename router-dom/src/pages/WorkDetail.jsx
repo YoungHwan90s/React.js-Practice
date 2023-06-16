@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import { toDos } from "../shared/data";
 
 function WorkDetail() {
-  const params = useParams();
+  const { id } = useParams();
 
   // Let's search which todo is,
   const foundData = toDos.find((item) => {
-    return item.id === parseInt(params.id);
+    return item.id === parseInt(id);
   });
 
   console.log(foundData);

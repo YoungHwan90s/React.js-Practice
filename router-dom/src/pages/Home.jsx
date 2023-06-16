@@ -10,7 +10,7 @@ function Home() {
       <br />
       <button
         onClick={() => {
-          navigate("/works/2");
+          navigate("/works");
         }}
       >
         MOVE TO WORKS
