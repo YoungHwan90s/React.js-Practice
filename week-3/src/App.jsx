@@ -1,30 +1,32 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+import api from "./axios/api";
 
 function App() {
   const [todos, setTodos] = useState(null);
   const [inputValue, setInputValue] = useState({
     title: "",
   });
-  const [targetId, setTargetId] = useState("");
+  const [targetId, setTargetId] = useState(0);
   const [contents, setContents] = useState("");
 
   // 조회 함수
   const fetchTodos = async () => {
-    const { data } = await axios.get("http://localhost:3001/todos");
+    const { data } = await api.get("/todos");
+
     setTodos(data);
   };
 
   // 추가 함수
   const onSubmitHandler = async () => {
-    await axios.post("http://localhost:3001/todos", inputValue);
+    await api.post("/todos", inputValue);
     // setTodos([...todos, inputValue]);
     fetchTodos();
   };
 
   // 삭제 함수
   const onDeleteButtonHandler = async (id) => {
-    axios.delete(`http://localhost:3001/todos/${id}`);
+    api.delete(`/todos/${id}`);
     setTodos(
       todos.filter((item) => {
         return item.id !== id;
@@ -34,12 +36,12 @@ function App() {
 
   // 수정 함수
   const onUpdateButtonHandler = async () => {
-    axios.patch(`http://localhost:3001/todos/${targetId}`, {
+    api.patch(`/todos/${targetId}`, {
       title: contents,
     });
     setTodos(
       todos.map((item) => {
-        if (item.id == targetId) {
+        if (item.id === +targetId) {
           return { ...item, title: contents };
         } else {
           return item;
