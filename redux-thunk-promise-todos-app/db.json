@@ -1,0 +1,12 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "hello javascript!"
+    },
+    {
+      "id": 2,
+      "title": "hello react!"
+    }
+  ]
+}
