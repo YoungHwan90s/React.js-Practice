@@ -46,7 +46,8 @@ function Home() {
       <button onClick={() => throttle(2000)}>쓰로틀링 버튼</button>
       <button onClick={() => debounce(2000)}>디바운싱 버튼</button>
       <div>
-        <button onClick={() => navigate("/company")}>페이지 이동</button>
+        <button onClick={() => navigate("/company")}>Comapny로 이동</button>
+        <button onClick={() => navigate("/lodash")}>Lodash로 이동</button>
       </div>
     </div>
   );
