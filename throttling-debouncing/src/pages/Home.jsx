@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   let timerId = null;
+  const navigate = useNavigate();
+
+  // memory leak을 방지 하기 위한 설정
+  useEffect(() => {
+    return () => {
+      if (timerId) {
+        clearTimeout(timerId);
+      }
+    };
+  }, []);
 
   const throttle = (delay) => {
     if (timerId) {
@@ -34,6 +45,9 @@ function Home() {
       <h1>Button 이벤트 예제</h1>
       <button onClick={() => throttle(2000)}>쓰로틀링 버튼</button>
       <button onClick={() => debounce(2000)}>디바운싱 버튼</button>
+      <div>
+        <button onClick={() => navigate("/company")}>페이지 이동</button>
+      </div>
     </div>
   );
 }
